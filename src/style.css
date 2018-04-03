@@ -1,0 +1,68 @@
+body {
+  background-color: #ECEFF1;
+}
+
+.wrapper {
+  margin-top: 20px;
+}
+
+/* 로그인 및 회원가입 */
+.auth {
+  text-align: center;
+  background: white;
+  width: 470px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .auth {
+    width: 100%;
+  }
+}
+
+.auth .btn {
+  text-align: center;
+  width: 90%;
+}
+
+.logo {
+  font-size: 36px;
+}
+
+/* 게시물 */
+.post {
+  background: white;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.divider {
+  margin-bottom: 20px;
+}
+
+pre {
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  white-space: pre-wrap;
+}
+
+/* 댓글 */
+.comment {
+  margin-bottom: 0;
+}
+.wcomment {
+  margin-bottom: 0;
+}
+div.wcomment > div.wcomment {
+  padding-top: 42px;
+}
+@media screen and (max-width: 480px) {
+  div.wcomment > div.wcomment {
+    padding-top: 0;
+  }
+}
+.comment > .comment-id {
+  text-align: center;
+}
