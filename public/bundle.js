@@ -27599,7 +27599,7 @@ var Writing = function (_React$Component) {
       this.props.writePostRequest(title, contents).then(function () {
         if (_this2.props.status === "SUCCESS") {
           Materialize.toast("글쓰기 성공", 2000);
-          _this2.props.history.push('/home');
+          _this2.props.history.push('/content/' + _this2.props.post._id);
         } else {
           Materialize.toast("실패", 2000);
         }
@@ -27658,7 +27658,8 @@ var Writing = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    status: state.write.write.status
+    status: state.write.write.status,
+    post: state.write.write.post
   };
 };
 

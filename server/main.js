@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import session from 'express-session';
 
 import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
 
 /* mongodb connection */
 const db = mongoose.connection;
@@ -37,5 +38,14 @@ app.get('*', (req, res) => {
 
 /* server open */
 app.listen(process.env.PORT, process.env.IP, () => {
-  console.log('Express is listening on port');
+  console.log('Express is listening on port', process.env.PORT);
 });
+
+/* development setting */
+if(process.env.NODE_ENV == 'development') {
+    const config = require('../webpack.dev.config');
+    const compiler = webpack(config);
+    const devServer = new WebpackDevServer(compiler, config.devServer);
+    devServer.listen(config.devServer.port);
+    console.log('Server is running on development mode', config.devServer.port);
+}
