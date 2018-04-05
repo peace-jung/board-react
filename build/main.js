@@ -24,6 +24,10 @@ var _webpack = require('webpack');
 
 var _webpack2 = _interopRequireDefault(_webpack);
 
+var _webpackDevServer = require('webpack-dev-server');
+
+var _webpackDevServer2 = _interopRequireDefault(_webpackDevServer);
+
 var _routes = require('./routes');
 
 var _routes2 = _interopRequireDefault(_routes);
@@ -63,5 +67,14 @@ app.get('*', function (req, res) {
 
 /* server open */
 app.listen(process.env.PORT, process.env.IP, function () {
-  console.log('Express is listening on port');
+  console.log('Express is listening on port', process.env.PORT);
 });
+
+/* development setting */
+if (process.env.NODE_ENV == 'development') {
+  var config = require('../webpack.dev.config');
+  var compiler = (0, _webpack2.default)(config);
+  var devServer = new _webpackDevServer2.default(compiler, config.devServer);
+  devServer.listen(config.devServer.port);
+  console.log('Server is running on development mode', config.devServer.port);
+}
